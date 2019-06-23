@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "snipeybot",
     "description": "Snipeybot OP.",
-    "homepage_url": "https://github.com/marijnbakker2/snipeybot9",
+    "homepage_url": "https://github.com/marijnbakker2/snipeybot",
     "icons": {
         "16": "icon.png",
         "48": "icon.png",

@@ -9,6 +9,7 @@
         switch (keyCode) {
             case 191 /* '/' */: // Must get new value for snipe
                 snipePrefilledPlayer();
+                // alert(' works');
                 break;
             default:
                 break;
@@ -30,24 +31,23 @@
         try {
           log('Start putting values in place')
           // Get min and max BIN values
-          var minBinincrButton = document.getElementsByClassName("increment-value")[2];
-          var maxBinincrButton = document.getElementsByClassName("increment-value")[3];
+          var searchButton = document.getElementsByClassName("btn-standard call-to-action")[0];
+          var maxBinField = document.getElementsByClassName("numericInput")[3];
           // var minBinValue = parseInt((document.getElementsByClassName("numericInput")[2].value).replace('.',''));
-          // var maxBinValue = parseInt((document.getElementsByClassName("numericInput")[3].value).replace('.',''));
+          var maxBinValue = parseInt((document.getElementsByClassName("numericInput")[3].value).replace('.',''));
 
           // Check if minBin is higher or lower than 75% of maxbin
           // if ((minBinValue / maxBinValue) > 0.35){
-            // Reset minBin to 200
+          //   // Reset minBin to 200
           //   document.getElementsByClassName("numericInput")[2].value = 250;
           //   var decrButton = document.getElementsByClassName('decrementBtn')[2];
           //   touchElement(decrButton);
           // } else {
-            // var incrButton = document.getElementsByClassName('standard incrementBtn')[2];
+            var incrButton = document.getElementsByClassName('btn-standard increment-value')[2];
+            touchElement(incrButton);
           // }
 
-          touchElement(minBinincrButton);
-
-          var searchButton = document.getElementsByClassName("btn-standard call-to-action")[0];
+          // var searchButton = document.getElementsByClassName('standard call-to-action')[0];
           touchElement(searchButton);
 
         } catch (error) {
@@ -58,7 +58,7 @@
         try {
           setTimeout(function(){
             // Check for available snipe
-            if (document.getElementsByClassName('btn-standard buyButton coins')[0] != undefined){
+            if (document.getElementsByClassName('buyButton')[0] != undefined){
               try {
                 log('Attempting to snipe');
                 // Click buy now button
@@ -67,13 +67,13 @@
 
                 // Click OK button
                 setTimeout(function(){
-                  var okButton = document.getElementsByClassName("flat")[1];
+                  var okButton = document.getElementsByClassName('flat')[1];
                   touchElement(okButton);
-                }, 75);
-                /**
-                / Player is now bought if no failure has occurred
-                / Snipeybot will now try to send this player to the transfer list
-                **/
+                }, 185);
+                // /**
+                // / Player is now bought if no failure has occurred
+                // / Snipeybot will now try to send this player to the transfer list
+                // **/
                 // setTimeout(function(){
                 //   try {
                 //     log('Attempting to send player to transfer list');
@@ -116,14 +116,14 @@
               }
 
             } else {
-              // If no player is found, click the BACK button
-              // setTimeout(function(){
-              //   log('Going back to input page')
-              //   var backButton = document.getElementsByClassName('standard call-to-action')[0];
-              //   touchElement(backButton);
-              // }, 1050);
+              // Back back
+              setTimeout(function(){
+                log('Going back to input page')
+                var backButton = document.getElementsByClassName('btn-navigation')[0];
+                touchElement(backButton);
+              }, 1050);
             }
-          }, 850);
+          }, 750);
         } catch (e) {
           // setTimeout(function(){
           //   var okButton = document.getElementsByClassName('btn-flat')[0];
