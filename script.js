@@ -40,6 +40,25 @@
           touchElement(okButton);
         }, 25);
 
+        observer3.disconnect();
+        me.disconnect(); // stop observing
+        return;
+      }
+    });
+
+    // set up the mutation observer for the ok button
+    var observer3 = new MutationObserver(function (mutations, me) {
+      var canvas = document.getElementsByClassName('no-results-icon')[0];
+      if (canvas) {
+        // Click OK button
+        setTimeout(function(){
+          log('Going back to input page');
+          observer.disconnect();
+          observer2.disconnect();
+          var backButton = document.getElementsByClassName('ut-navigation-button-control' )[0];
+          touchElement(backButton);
+        }, 1225);
+
         me.disconnect(); // stop observing
         return;
       }
@@ -64,6 +83,11 @@
           subtree: true
         });
 
+        observer3.observe(document, {
+          childList: true,
+          subtree: true
+        });
+
         // Fill in search field and start search
         try {
           // Get min and max BIN values
@@ -80,25 +104,6 @@
 
         } catch (error) {
           log('Failed search function')
-        }
-
-        // Try to buy a player on the player screen
-        try {
-          setTimeout(function(){
-            // Check for available snipe
-            if (document.getElementsByClassName('no-results-icon')[0] != undefined){
-              // Back back
-              setTimeout(function(){
-                log('Going back to input page');
-                observer.disconnect();
-                observer2.disconnect();
-                var backButton = document.getElementsByClassName('ut-navigation-button-control' )[0];
-                touchElement(backButton);
-              }, 1250);
-            }
-          }, 550);
-        } catch (e) {
-          // meh?
         }
      }
 
